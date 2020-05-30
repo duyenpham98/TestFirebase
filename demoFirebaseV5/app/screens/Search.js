@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, FlatList, View, Image, Dimensions, TextInput } from 'react-native';
 import firebase, { Firebase } from 'react-native-firebase';
+import image1 from '../media/product/54.jpeg'
 export default function Search({props,navigation}) {
     let h = []
     const [search, setSearch] = useState("")
     const [arrayProduct,SetArrayProduct] = useState([])
     
     function searchProduct(){
-        console.log('wwww',search)
-    firebase.database().ref('Product/').orderByChild('name').equalTo(search).on('value', snapshot => {
-        let items = snapshot.val()
-        console.log('sdsddsd',items)
-       // Object.values(items).map(i => console.log(i))
+        let h = []
+        firebase.database().ref('Product/').orderByChild('name').orderBy(search).on('value', snapshot => {
+            let items = snapshot.val()
+            
+            let d = Object.values(items).map(i => {
+                h = h.concat(i)
+            })
+            SetArrayProduct(h)
     })
+    }
+    function goToDetail(item){
+        navigation.navigate('Details',{
+            otherParam: item,
+        });
     }
         return (
             <View style={styles.wrapper}> 
@@ -29,12 +38,12 @@ export default function Search({props,navigation}) {
                     <Text style={styles.txtShowDetail}>Search</Text>
                 </TouchableOpacity>
                 </View>
-            </View>
+                <View style={{marginTop: 20}}>
                 <FlatList
                     data={arrayProduct}
                     renderItem={({ item }) =>
                         <View style={styles.product}>
-                            <Image source={{ uri: `${url}${item.images}` }} style={styles.productImage} />
+                            <Image source={image1} style={styles.productImage} />
                             <View style={styles.mainRight}>
                                 <Text style={styles.txtName}>{item.name}</Text>
                                 <Text style={styles.txtPrice}>{item.gia}$</Text>
@@ -51,7 +60,7 @@ export default function Search({props,navigation}) {
                                         }}
                                     />
                                 </View>
-                                <TouchableOpacity style={styles.showDetailContainer} >
+                                <TouchableOpacity style={styles.showDetailContainer} onPress={() => goToDetail(item)}>
                                     <Text style={styles.txtShowDetail}>SHOW DETAILS</Text>
                                 </TouchableOpacity>
                             </View>
@@ -59,6 +68,9 @@ export default function Search({props,navigation}) {
                     }
                     keyExtractor={({ id }, index) => id}
                 />
+                </View>
+            </View>
+               
             </View>
         );
 }

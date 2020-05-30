@@ -44,7 +44,6 @@ export default function Home({props,navigation}) {
         navigation.navigate('Details',{
             otherParam: item,
         });
-         console.log(navigation)
     }
     return (
         <View style={styles.header}>
