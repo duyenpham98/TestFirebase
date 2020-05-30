@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "766263301808",
+    "firebase_url": "https://demofirebase-4deb8.firebaseio.com",
+    "project_id": "demofirebase-4deb8",
+    "storage_bucket": "demofirebase-4deb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766263301808:android:5f136a7f55a2c59d308d75",
+        "android_client_info": {
+          "package_name": "com.demofirebasev5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766263301808-07oh8326kbdgtua16f28t6hulaq6gnkv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUcFZArVxXTWWUOzSQS4witcb6xO3HseQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766263301808-07oh8326kbdgtua16f28t6hulaq6gnkv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
