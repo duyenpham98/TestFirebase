@@ -6,10 +6,9 @@ export default function Search({props,navigation}) {
     let h = []
     const [search, setSearch] = useState("")
     const [arrayProduct,SetArrayProduct] = useState([])
-    
     function searchProduct(){
         let h = []
-        firebase.database().ref('Product/').orderByChild('name').orderBy(search).on('value', snapshot => {
+        firebase.database().ref('Product/').orderByChild('name').startAt(search).on('value', snapshot => {
             let items = snapshot.val()
             
             let d = Object.values(items).map(i => {

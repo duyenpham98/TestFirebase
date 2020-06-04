@@ -14,6 +14,7 @@ export default function Home({props,navigation}) {
     let messagesRef = null
     useEffect(() => {
      loadMessages()
+    // writeData('yellow','san xuat tu trung quoc','014','kaki','AoDai','111')
     }, [])
     function loadMessages(){
         messagesRef = firebase.database().ref('Product');
@@ -26,6 +27,21 @@ export default function Home({props,navigation}) {
         };
         let j = messagesRef.limitToLast(limitArray).on('child_added', onReceive);
         console.log('messagesRef',j)
+    }
+    function writeData(color,description,id,material,name,price){
+       firebase.database().ref('Product').push({
+           color,
+           description,
+           id,
+           material,
+           name,
+           price,
+       }).then((data) => {
+           console.log('dfdf',data)
+       }).catch((er) => {
+           console.log('sddd',er)
+       })
+       
     }
     function Reload(){
         let limit = limitArray + 10;
