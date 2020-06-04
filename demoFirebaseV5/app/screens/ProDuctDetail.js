@@ -20,16 +20,16 @@ export default function Search({props,navigation,route}) {
                             <Text style={styles.textMain}>
                                 <Text style={styles.textBlack}>{data.name}</Text>
                                 <Text style={styles.textHighlight}> / </Text>
-                                <Text style={styles.textSmoke}>{data.gia}$</Text>
+                                <Text style={styles.textSmoke}>{data.price}$</Text>
                             </Text>
                         </View>
                         <View style={styles.descContainer}>
-                            <Text style={styles.descStyle}>{data.material}</Text>
+                            <Text style={styles.descStyle}>{data.description}</Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 15 }}>
-                                <Text style={styles.txtMaterial}>Material: {data.color}</Text>
+                                <Text style={styles.txtMaterial}>Material: {data.material}</Text>
                                 <View style={{ flexDirection: 'row' }} >
-                                    <Text style={styles.txtColor}>Color: {data.price}</Text>
-                                    <View style={{ backgroundColor: data.price.toLowerCase(),height: 15, width: 15, borderRadius: 15, marginLeft: 10, borderWidth: 1, borderColor: '#C21C70', marginTop: 3 }} />
+                                    <Text style={styles.txtColor}>Color: {data.color}</Text>
+                                    <View style={{ backgroundColor: data.color.toLowerCase(),height: 15, width: 15, borderRadius: 15, marginLeft: 10, borderWidth: 1, borderColor: '#C21C70', marginTop: 3 }} />
                                 </View>
                             </View>
                         </View>

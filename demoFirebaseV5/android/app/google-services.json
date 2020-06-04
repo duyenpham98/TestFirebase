@@ -30,6 +30,13 @@
             {
               "client_id": "766263301808-07oh8326kbdgtua16f28t6hulaq6gnkv.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "766263301808-dhg50pl9nejo48cmft3c79gqd2pb1knk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.demoFirebaseV5"
+              }
             }
           ]
         }

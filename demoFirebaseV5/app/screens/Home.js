@@ -13,8 +13,7 @@ export default function Home({props,navigation}) {
     const [refeshData, setRefeshData] = useState(false)
     let messagesRef = null
     useEffect(() => {
-    loadMessages()
-  
+     loadMessages()
     }, [])
     function loadMessages(){
         messagesRef = firebase.database().ref('Product');
@@ -25,7 +24,8 @@ export default function Home({props,navigation}) {
             h = h.concat(message)
             SetArrayProduct(h)
         };
-        messagesRef.limitToLast(limitArray).on('child_added', onReceive);
+        let j = messagesRef.limitToLast(limitArray).on('child_added', onReceive);
+        console.log('messagesRef',j)
     }
     function Reload(){
         let limit = limitArray + 10;
@@ -56,15 +56,15 @@ export default function Home({props,navigation}) {
                             <View style={styles.productInfo}>
                                 <Text style={styles.txtName}>{item.name}</Text>
                                 <View style={styles.lastRowInfo}>
-                                    <Text style={styles.txtPrice}>{item.gia}$</Text>
+                                    <Text style={styles.txtPrice}>{item.price}$</Text>
                                     <TouchableOpacity style={{ marginRight: 10 }} onPress={() => goToDetail(item)}>
                                         <Text style={styles.txtShowDetail}>SHOW DETAILS</Text>
                                     </TouchableOpacity>
                                 </View>
-                                <Text style={styles.txtMaterial}>Material:{item.color}</Text>
+                                <Text style={styles.txtMaterial}>Material:{item.material}</Text>
                                 <View style={styles.lastRowInfo}>
-                                    <Text style={styles.txtColor}>Color:{item.price}</Text>
-                                    <View style={{ backgroundColor: item.price.toLowerCase() ,height: 16, width: 16, borderRadius: 8, marginRight: 35 }} />
+                                    <Text style={styles.txtColor}>Color:{item.color}</Text>
+                                    <View style={{ backgroundColor: item.color.toLowerCase() ,height: 16, width: 16, borderRadius: 8, marginRight: 35 }} />
                                 </View>
                             </View>
                         </View>

@@ -46,10 +46,10 @@ export default function Search({props,navigation}) {
                             <Image source={image1} style={styles.productImage} />
                             <View style={styles.mainRight}>
                                 <Text style={styles.txtName}>{item.name}</Text>
-                                <Text style={styles.txtPrice}>{item.gia}$</Text>
-                                <Text style={styles.txtMaterial}>Material {item.color}</Text>
+                                <Text style={styles.txtPrice}>{item.price}$</Text>
+                                <Text style={styles.txtMaterial}>Material {item.material}</Text>
                                 <View style={{ flexDirection: 'row' }} >
-                                    <Text style={styles.txtColor}>Color {item.price}</Text>
+                                    <Text style={styles.txtColor}>Color {item.color}</Text>
                                     <View
                                         style={{
                                             height: 15,
