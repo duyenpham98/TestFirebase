@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import image1 from '../media/product/54.jpeg'
 export default function Search({props,navigation,route}) {
-  
+  //sadasdsadasdsadsa
     const data = route.params.otherParam
     console.log('route',data)
         return (
